@@ -61,8 +61,7 @@ PluginSettings {
             { label: "DuckDuckGo", value: "duckduckgo" },
             { label: "Brave", value: "brave" },
             { label: "Kagi", value: "kagi" },
-            { label: "Bing", value: "bing" },
-            { label: "SearXNG", value: "searxng" }
+            { label: "Bing", value: "bing" }
         ]
     }
 }

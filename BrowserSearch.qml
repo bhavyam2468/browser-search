@@ -1,30 +1,3 @@
-import QtQuick
-import Quickshell
-import qs.Services
-
-QtObject {
-    id: root
-
-    property var pluginService: null
-    property string pluginId: "browserSearch"
-    property string trigger: "z "
-    property string searchEngine: pluginData.searchEngine || "google"
-    property string browser: pluginData.browser || "zen"
-    property string browserBin: pluginData.browserBin || ""
-
-    signal itemsChanged
-
-    Component.onCompleted: {
-        if (pluginService) {
-            trigger = pluginService.loadPluginData(pluginId, "trigger", "z ")
-            searchEngine = pluginService.loadPluginData(pluginId, "searchEngine", "google")
-            browser = pluginService.loadPluginData(pluginId, "browser", "zen")
-            browserBin = pluginService.loadPluginData(pluginId, "browserBin", "")
-        }
-    }
-
-    function looksLikeUrl(q) {
-        if (!q) return false
         const t = q.trim()
         if (t.startsWith("http://") || t.startsWith("https://")) return true
         if (t.indexOf(" ") >= 0) return false
@@ -41,7 +14,6 @@ QtObject {
             case "brave":      return "https://search.brave.com/search?q=" + q
             case "kagi":       return "https://kagi.com/search?q=" + q
             case "bing":       return "https://www.bing.com/search?q=" + q
-            case "searxng":    return "https://searxng.org/search?q=" + q
             case "google":
             default:           return "https://www.google.com/search?q=" + q
         }
@@ -66,7 +38,6 @@ QtObject {
             default: return "zen"
         }
     }
-
     function getItems(query) {
         if (!query || query.trim() === "") return []
 
