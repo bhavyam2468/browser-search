@@ -1,0 +1,13 @@
+{
+  "id": "browserSearch",
+  "name": "Browser Search",
+  "description": "Search the web or open URLs directly in your preferred browser from the launcher",
+  "version": "1.0.0",
+  "author": "bhavyam2468",
+  "icon": "search",
+  "type": "launcher",
+  "trigger": "z ",
+  "component": "./BrowserSearch.qml",
+  "settings": "./BrowserSearchSettings.qml",
+  "permissions": ["settings_read", "settings_write"]
+}
